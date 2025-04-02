@@ -1,0 +1,22 @@
+[
+    {
+      "value": "https://sunfall.netlify.app/change-password",
+      "op": "replace",
+      "path": "/auth/redirections/allowedUrls/0"
+    },
+    {
+      "value": "https://sunfall.netlify.app/",
+      "op": "replace",
+      "path": "/auth/redirections/clientUrl"
+    },
+    {
+      "value": [
+        {
+          "name": "ENVIRONMENT",
+          "value": "staging"
+        }
+      ],
+      "op": "add",
+      "path": "/global/environment"
+    }
+  ]

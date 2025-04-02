@@ -1,0 +1,17 @@
+[
+    {
+      "value": "http://localhost:3000",
+      "op": "replace",
+      "path": "/auth/redirections/clientUrl"
+    },
+    {
+      "value": [
+        {
+          "name": "ENVIRONMENT",
+          "value": "local"
+        }
+      ],
+      "op": "add",
+      "path": "/global/environment"
+    }
+  ]
