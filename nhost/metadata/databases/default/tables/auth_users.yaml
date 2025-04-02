@@ -98,6 +98,13 @@ object_relationships:
         table:
           name: default_organization
           schema: public
+  - name: user_project
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: user_projects
+          schema: public
 array_relationships:
   - name: logs
     using:
@@ -134,3 +141,10 @@ array_relationships:
         table:
           name: user_providers
           schema: auth
+  - name: user_organizations
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: user_organizations
+          schema: public

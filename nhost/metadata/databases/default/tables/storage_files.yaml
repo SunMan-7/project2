@@ -52,3 +52,10 @@ object_relationships:
   - name: bucket
     using:
       foreign_key_constraint_on: bucket_id
+  - name: rosette
+    using:
+      foreign_key_constraint_on:
+        column: file_id
+        table:
+          name: rosettes
+          schema: public

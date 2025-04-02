@@ -1,7 +1,10 @@
 table:
-  name: individuals
+  name: image_species
   schema: public
 object_relationships:
+  - name: image
+    using:
+      foreign_key_constraint_on: image_file_id
   - name: species
     using:
       foreign_key_constraint_on: species_id
@@ -9,14 +12,7 @@ array_relationships:
   - name: image_individuals
     using:
       foreign_key_constraint_on:
-        column: individual_id
+        column: image_species_id
         table:
           name: image_individuals
-          schema: public
-  - name: rosettes
-    using:
-      foreign_key_constraint_on:
-        column: individual_id
-        table:
-          name: rosettes
           schema: public

@@ -1,0 +1,1 @@
+CREATE TABLE public.rosettes (file_id uuid NOT NULL, individual_id int4 NOT NULL, side bpchar NOT NULL, PRIMARY KEY (file_id), FOREIGN KEY (file_id) REFERENCES storage.files (id) ON UPDATE CASCADE ON DELETE RESTRICT, FOREIGN KEY (individual_id) REFERENCES public.individuals (id) ON UPDATE RESTRICT ON DELETE RESTRICT);

@@ -1,3 +1,18 @@
 table:
   name: images
   schema: public
+array_relationships:
+  - name: identification_history
+    using:
+      foreign_key_constraint_on:
+        column: image_file_id
+        table:
+          name: identification_history
+          schema: public
+  - name: image_species
+    using:
+      foreign_key_constraint_on:
+        column: image_file_id
+        table:
+          name: image_species
+          schema: public

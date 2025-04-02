@@ -2,6 +2,13 @@ table:
   name: species
   schema: public
 array_relationships:
+  - name: image_species
+    using:
+      foreign_key_constraint_on:
+        column: species_id
+        table:
+          name: image_species
+          schema: public
   - name: individuals
     using:
       foreign_key_constraint_on:
