@@ -1,0 +1,1 @@
+CREATE TABLE public.logs (id int4 GENERATED ALWAYS AS IDENTITY, user_id uuid NOT NULL, created_at timestamptz NOT NULL, action_type text NOT NULL, affected_table text NOT NULL, details text, PRIMARY KEY (id), FOREIGN KEY (user_id) REFERENCES auth.users (id) ON UPDATE RESTRICT ON DELETE RESTRICT);

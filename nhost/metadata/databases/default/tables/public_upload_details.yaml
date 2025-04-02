@@ -1,0 +1,7 @@
+table:
+  name: upload_details
+  schema: public
+object_relationships:
+  - name: deployment
+    using:
+      foreign_key_constraint_on: deployment_id

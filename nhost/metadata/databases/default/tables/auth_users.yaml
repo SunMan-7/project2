@@ -91,7 +91,21 @@ object_relationships:
   - name: defaultRoleByRole
     using:
       foreign_key_constraint_on: default_role
+  - name: default_organization
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: default_organization
+          schema: public
 array_relationships:
+  - name: logs
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: logs
+          schema: public
   - name: refreshTokens
     using:
       foreign_key_constraint_on:

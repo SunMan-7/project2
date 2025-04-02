@@ -1,0 +1,1 @@
+CREATE TABLE public.default_organization (user_id uuid NOT NULL, organization_id int4 NOT NULL, is_revoked bool DEFAULT 'false' NOT NULL, PRIMARY KEY (user_id), FOREIGN KEY (user_id) REFERENCES auth.users (id) ON UPDATE RESTRICT ON DELETE RESTRICT);

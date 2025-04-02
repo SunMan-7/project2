@@ -14,3 +14,11 @@ object_relationships:
   - name: subproject
     using:
       foreign_key_constraint_on: subproject_id
+array_relationships:
+  - name: upload_details
+    using:
+      foreign_key_constraint_on:
+        column: deployment_id
+        table:
+          name: upload_details
+          schema: public
