@@ -1,0 +1,1 @@
+CREATE TABLE public.sites (id int4 GENERATED ALWAYS AS IDENTITY, site_name text NOT NULL, short_name text, address text, sublocation text, site_area int4, remarks text, x int4 NOT NULL, y int4 NOT NULL, PRIMARY KEY (id));

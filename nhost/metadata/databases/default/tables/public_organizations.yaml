@@ -1,3 +1,18 @@
 table:
   name: organizations
   schema: public
+array_relationships:
+  - name: cameras
+    using:
+      foreign_key_constraint_on:
+        column: organization_id
+        table:
+          name: cameras
+          schema: public
+  - name: projects
+    using:
+      foreign_key_constraint_on:
+        column: organization_id
+        table:
+          name: projects
+          schema: public
