@@ -1,0 +1,1 @@
+CREATE TABLE public.species (id int4 GENERATED ALWAYS AS IDENTITY, common_name text NOT NULL, taxon_id int4 UNIQUE NOT NULL, class text, "order" text, family text, genus text, species text, taxon_level text, authority text, taxonomy_type text, taxonomy_subtype text, scientific_name text NOT NULL, PRIMARY KEY (id));

@@ -1,0 +1,1 @@
+CREATE TABLE public.organizations (id int4 GENERATED ALWAYS AS IDENTITY, organization_name text NOT NULL, code_name text UNIQUE NOT NULL, address1 text, address2 text, district text, short_name text NOT NULL, PRIMARY KEY (id));
