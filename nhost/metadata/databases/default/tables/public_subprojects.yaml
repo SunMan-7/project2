@@ -1,11 +1,11 @@
 table:
-  name: species
+  name: subprojects
   schema: public
 array_relationships:
-  - name: individuals
+  - name: deployments
     using:
       foreign_key_constraint_on:
-        column: species_id
+        column: subproject_id
         table:
-          name: individuals
+          name: deployments
           schema: public

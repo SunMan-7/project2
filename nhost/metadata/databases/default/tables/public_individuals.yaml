@@ -1,0 +1,7 @@
+table:
+  name: individuals
+  schema: public
+object_relationships:
+  - name: species
+    using:
+      foreign_key_constraint_on: species_id

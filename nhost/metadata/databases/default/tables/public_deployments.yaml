@@ -1,0 +1,16 @@
+table:
+  name: deployments
+  schema: public
+object_relationships:
+  - name: camera
+    using:
+      foreign_key_constraint_on: camera_id
+  - name: location
+    using:
+      foreign_key_constraint_on: location_id
+  - name: project
+    using:
+      foreign_key_constraint_on: project_id
+  - name: subproject
+    using:
+      foreign_key_constraint_on: subproject_id
