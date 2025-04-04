@@ -32,6 +32,7 @@ version = 22
 
 [auth]
 version = '0.37.1'
+
 [auth.elevatedPrivileges]
 mode = 'disabled'
 
@@ -64,6 +65,26 @@ rating = 'g'
 [auth.session]
 [auth.session.accessToken]
 expiresIn = 900
+
+[[auth.session.accessToken.customClaims]]
+key = 'user-displayName'
+value = 'displayName'
+
+[[auth.session.accessToken.customClaims]]
+key = 'user-email'
+value = 'email'
+
+[[auth.session.accessToken.customClaims]]
+key = 'organization-id'
+value = 'metadata.defaultOrganizationId'
+
+[[auth.session.accessToken.customClaims]]
+key = 'organization-ids'
+value = 'user_organizations[].organizationd_id'
+
+[[auth.session.accessToken.customClaims]]
+key = 'project-ids'
+value = 'user_projects.project_id[]'
 
 [auth.session.refreshToken]
 expiresIn = 2592000
