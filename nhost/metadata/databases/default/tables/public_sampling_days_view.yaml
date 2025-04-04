@@ -1,0 +1,3 @@
+table:
+  name: sampling_days_view
+  schema: public

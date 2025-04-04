@@ -1,0 +1,3 @@
+table:
+  name: image_count_per_species
+  schema: public
