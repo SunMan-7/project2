@@ -80,7 +80,7 @@ value = 'metadata.defaultOrganizationId'
 
 [[auth.session.accessToken.customClaims]]
 key = 'organization-ids'
-value = 'user_organizations[].organizationd_id'
+value = 'user_organizations[*].organizationd_id'
 
 [[auth.session.accessToken.customClaims]]
 key = 'project-ids'
