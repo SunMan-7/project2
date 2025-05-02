@@ -9,12 +9,26 @@ array_relationships:
         table:
           name: cameras
           schema: public
+  - name: locations
+    using:
+      foreign_key_constraint_on:
+        column: organization_id
+        table:
+          name: locations
+          schema: public
   - name: projects
     using:
       foreign_key_constraint_on:
         column: organization_id
         table:
           name: projects
+          schema: public
+  - name: subprojects
+    using:
+      foreign_key_constraint_on:
+        column: organization_id
+        table:
+          name: subprojects
           schema: public
   - name: user_organizations
     using:
@@ -23,3 +37,45 @@ array_relationships:
         table:
           name: user_organizations
           schema: public
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - address1
+        - address2
+        - code_name
+        - district
+        - id
+        - organization_name
+        - short_name
+      filter:
+        id:
+          _in: X-Hasura-organization-ids
+    comment: ""
+update_permissions:
+  - role: o_admin
+    permission:
+      columns:
+        - address1
+        - address2
+        - district
+        - organization_name
+        - short_name
+      filter:
+        id:
+          _eq: X-Hasura-organization-id
+      check: null
+    comment: ""
+  - role: o_editor
+    permission:
+      columns:
+        - address1
+        - address2
+        - district
+        - organization_name
+        - short_name
+      filter:
+        id:
+          _eq: X-Hasura-organization-id
+      check: null
+    comment: ""
