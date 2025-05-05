@@ -13,3 +13,97 @@ array_relationships:
         table:
           name: deployments
           schema: public
+insert_permissions:
+  - role: o_editor
+    permission:
+      check: {}
+      set:
+        organization_id: x-hasura-organization-id
+      columns:
+        - camera_name
+        - make
+        - model
+        - num_of_batteries
+        - organization_id
+        - product_url
+        - purchase_date
+        - purchase_price
+        - remarks
+        - serial_number
+        - status
+    comment: ""
+  - role: p_contributor
+    permission:
+      check: {}
+      set:
+        organization_id: x-hasura-organization-d
+      columns:
+        - camera_name
+        - make
+        - model
+        - num_of_batteries
+        - product_url
+        - purchase_date
+        - purchase_price
+        - remarks
+        - serial_number
+        - status
+    comment: ""
+select_permissions:
+  - role: p_viewer
+    permission:
+      columns:
+        - id
+        - organization_id
+        - purchase_price
+        - num_of_batteries
+        - camera_name
+        - make
+        - model
+        - product_url
+        - remarks
+        - serial_number
+        - status
+        - purchase_date
+      filter:
+        organization_id:
+          _eq: X-Hasura-organization-id
+      allow_aggregations: true
+    comment: ""
+update_permissions:
+  - role: o_editor
+    permission:
+      columns:
+        - camera_name
+        - make
+        - model
+        - num_of_batteries
+        - product_url
+        - purchase_date
+        - purchase_price
+        - remarks
+        - serial_number
+        - status
+      filter:
+        organization_id:
+          _eq: X-Hasura-organization-id
+      check: null
+    comment: ""
+  - role: p_contributor
+    permission:
+      columns:
+        - camera_name
+        - make
+        - model
+        - num_of_batteries
+        - product_url
+        - purchase_date
+        - purchase_price
+        - remarks
+        - serial_number
+        - status
+      filter:
+        organization_id:
+          _eq: X-Hasura-organization-id
+      check: null
+    comment: ""

@@ -16,3 +16,40 @@ array_relationships:
         table:
           name: individuals
           schema: public
+select_permissions:
+  - role: p_viewer
+    permission:
+      columns:
+        - id
+        - taxon_id
+        - authority
+        - class
+        - common_name
+        - family
+        - genus
+        - order
+        - scientific_name
+        - species
+        - taxon_level
+        - taxonomy_subtype
+        - taxonomy_type
+      filter: {}
+    comment: ""
+  - role: public
+    permission:
+      columns:
+        - id
+        - taxon_id
+        - authority
+        - class
+        - common_name
+        - family
+        - genus
+        - order
+        - scientific_name
+        - species
+        - taxon_level
+        - taxonomy_subtype
+        - taxonomy_type
+      filter: {}
+    comment: ""

@@ -1,3 +1,17 @@
 table:
   name: sites
   schema: public
+select_permissions:
+  - role: p_viewer
+    permission:
+      columns:
+        - address
+        - id
+        - remarks
+        - short_name
+        - site_area
+        - site_name
+        - sublocation
+      filter: {}
+      allow_aggregations: true
+    comment: ""
