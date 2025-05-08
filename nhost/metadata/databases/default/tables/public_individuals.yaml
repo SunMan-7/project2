@@ -20,3 +20,18 @@ array_relationships:
         table:
           name: rosettes
           schema: public
+select_permissions:
+  - role: p_viewer
+    permission:
+      columns:
+        - id
+        - species_id
+        - age
+        - code_name
+        - individual_name
+        - remarks
+        - sex
+        - year_discovered
+      filter: {}
+      allow_aggregations: true
+    comment: ""

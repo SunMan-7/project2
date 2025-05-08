@@ -16,3 +16,39 @@ array_relationships:
         table:
           name: deployments
           schema: public
+insert_permissions:
+  - role: p_editor
+    permission:
+      check: {}
+      set:
+        organization_id: x-hasura-organization-id
+      columns:
+        - description
+        - project_id
+        - subproject_name
+    comment: ""
+select_permissions:
+  - role: p_viewer
+    permission:
+      columns:
+        - id
+        - organization_id
+        - project_id
+        - description
+        - subproject_name
+      filter:
+        organization_id:
+          _eq: X-Hasura-organization-id
+      allow_aggregations: true
+    comment: ""
+update_permissions:
+  - role: p_editor
+    permission:
+      columns:
+        - description
+        - subproject_name
+      filter:
+        organization_id:
+          _eq: X-Hasura-organization-id
+      check: null
+    comment: ""

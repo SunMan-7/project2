@@ -29,3 +29,71 @@ array_relationships:
         table:
           name: upload_details
           schema: public
+insert_permissions:
+  - role: p_contributor
+    permission:
+      check: {}
+      columns:
+        - camera_id
+        - camera_placement
+        - check_number
+        - deployment_name
+        - end_date
+        - failure_type
+        - has_media
+        - is_upload_complete
+        - location_id
+        - metadata
+        - pickup_person
+        - project_id
+        - remarks
+        - setup_person
+        - start_date
+        - subproject_id
+    comment: ""
+select_permissions:
+  - role: p_viewer
+    permission:
+      columns:
+        - has_media
+        - is_upload_complete
+        - camera_id
+        - id
+        - location_id
+        - project_id
+        - subproject_id
+        - metadata
+        - camera_placement
+        - check_number
+        - deployment_name
+        - failure_type
+        - pickup_person
+        - remarks
+        - setup_person
+        - end_date
+        - start_date
+      filter: {}
+      allow_aggregations: true
+    comment: ""
+update_permissions:
+  - role: p_contributor
+    permission:
+      columns:
+        - camera_id
+        - camera_placement
+        - check_number
+        - deployment_name
+        - end_date
+        - failure_type
+        - has_media
+        - is_upload_complete
+        - location_id
+        - metadata
+        - pickup_person
+        - remarks
+        - setup_person
+        - start_date
+        - subproject_id
+      filter: {}
+      check: null
+    comment: ""

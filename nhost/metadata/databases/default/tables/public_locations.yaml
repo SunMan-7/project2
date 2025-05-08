@@ -16,6 +16,19 @@ array_relationships:
         table:
           name: deployments
           schema: public
+insert_permissions:
+  - role: p_contributor
+    permission:
+      check: {}
+      set:
+        organization_id: x-hasura-organization-id
+      columns:
+        - location_name
+        - project_id
+        - remarks
+        - x
+        - "y"
+    comment: ""
 select_permissions:
   - role: p_viewer
     permission:
@@ -31,4 +44,16 @@ select_permissions:
         organization_id:
           _eq: X-Hasura-organization-id
       allow_aggregations: true
+    comment: ""
+update_permissions:
+  - role: p_contributor
+    permission:
+      columns:
+        - location_name
+        - project_id
+        - remarks
+        - x
+        - "y"
+      filter: {}
+      check: null
     comment: ""

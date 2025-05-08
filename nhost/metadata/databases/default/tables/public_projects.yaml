@@ -34,3 +34,172 @@ array_relationships:
         table:
           name: deployments
           schema: public
+insert_permissions:
+  - role: o_admin
+    permission:
+      check:
+        organization_id:
+          _in: X-Hasura-organization-ids
+      set:
+        created_by: x-hasura-user-email
+        organization_id: x-hasura-organization-id
+      columns:
+        - contact_email
+        - contact_person
+        - created_at
+        - end_date
+        - objectives
+        - p_owner_email
+        - project_code
+        - project_name
+        - project_owner
+        - short_name
+        - start_date
+    comment: ""
+  - role: o_editor
+    permission:
+      check:
+        organization_id:
+          _in: X-Hasura-organization-ids
+      set:
+        created_by: x-hasura-user-email
+        organization_id: x-hasura-organization-id
+      columns:
+        - contact_email
+        - contact_person
+        - created_at
+        - end_date
+        - objectives
+        - organization_id
+        - p_owner_email
+        - project_code
+        - project_name
+        - project_owner
+        - short_name
+        - start_date
+    comment: ""
+select_permissions:
+  - role: o_admin
+    permission:
+      columns:
+        - contact_email
+        - contact_person
+        - created_at
+        - created_by
+        - end_date
+        - id
+        - objectives
+        - organization_id
+        - p_owner_email
+        - project_code
+        - project_name
+        - project_owner
+        - short_name
+        - start_date
+      filter:
+        organization_id:
+          _in: X-Hasura-organization-ids
+      allow_aggregations: true
+    comment: ""
+  - role: o_viewer
+    permission:
+      columns:
+        - contact_email
+        - contact_person
+        - created_at
+        - created_by
+        - end_date
+        - id
+        - objectives
+        - organization_id
+        - p_owner_email
+        - project_code
+        - project_name
+        - project_owner
+        - short_name
+        - start_date
+      filter:
+        organization_id:
+          _in: X-Hasura-organization-ids
+      allow_aggregations: true
+    comment: ""
+  - role: p_viewer
+    permission:
+      columns:
+        - contact_email
+        - contact_person
+        - created_at
+        - created_by
+        - end_date
+        - id
+        - objectives
+        - organization_id
+        - p_owner_email
+        - project_code
+        - project_name
+        - project_owner
+        - short_name
+        - start_date
+      filter:
+        id:
+          _in: X-Hasura-project-ids
+      allow_aggregations: true
+    comment: ""
+  - role: user
+    permission:
+      columns:
+        - contact_email
+        - contact_person
+        - created_at
+        - created_by
+        - end_date
+        - id
+        - objectives
+        - organization_id
+        - p_owner_email
+        - project_code
+        - project_name
+        - project_owner
+        - short_name
+        - start_date
+      filter:
+        id:
+          _in: X-Hasura-project-ids
+    comment: ""
+update_permissions:
+  - role: o_editor
+    permission:
+      columns:
+        - contact_email
+        - contact_person
+        - end_date
+        - objectives
+        - p_owner_email
+        - project_code
+        - project_name
+        - project_owner
+        - short_name
+        - start_date
+      filter:
+        organization_id:
+          _eq: X-Hasura-organization-id
+      check: null
+    comment: ""
+  - role: p_editor
+    permission:
+      columns:
+        - contact_email
+        - contact_person
+        - end_date
+        - objectives
+        - p_owner_email
+        - project_code
+        - project_name
+        - project_owner
+        - short_name
+        - start_date
+      filter:
+        organization_id:
+          _eq: X-Hasura-organization-id
+      check: null
+    comment: ""
