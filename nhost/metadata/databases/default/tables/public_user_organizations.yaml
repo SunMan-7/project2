@@ -42,3 +42,17 @@ update_permissions:
           _neq: X-Hasura-User-Id
       check: null
     comment: ""
+event_triggers:
+  - name: user-organizationsTrigger
+    definition:
+      enable_manual: false
+      insert:
+        columns: '*'
+      update:
+        columns:
+          - role
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook: '{{NHOST_FUNCTIONS_URL}}/user-roles'

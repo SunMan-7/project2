@@ -1,1 +1,18 @@
-[]
+- comment: Insert user role into user_roles table to serve as part of allowed roles
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: InsertUserRole
+  methods:
+    - POST
+  name: InsertUserRole
+  url: insert-user-role
+- comment: Any table changes by any users will be logged to the "logs" table
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: insert_log
+  methods:
+    - POST
+  name: insert_log
+  url: log

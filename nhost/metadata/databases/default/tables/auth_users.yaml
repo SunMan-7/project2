@@ -148,3 +148,20 @@ array_relationships:
         table:
           name: user_organizations
           schema: public
+event_triggers:
+  - name: users_trigger
+    definition:
+      delete:
+        columns: '*'
+      enable_manual: false
+      insert:
+        columns: '*'
+      update:
+        columns:
+          - display_name
+          - default_role
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook: '{{NHOST_FUNCTIONS_URL}}/log'

@@ -68,3 +68,17 @@ update_permissions:
             _eq: X-Hasura-organization-id
       check: null
     comment: ""
+event_triggers:
+  - name: user_projectsRoleTrigger
+    definition:
+      enable_manual: false
+      insert:
+        columns: '*'
+      update:
+        columns:
+          - user_role
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook: '{{NHOST_FUNCTIONS_URL}}/project-roles'

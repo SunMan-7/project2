@@ -1,1 +1,17 @@
-[]
+- name: allowed-queries
+  definition:
+    queries:
+      - name: InsertUserRole
+        query: |
+          mutation InsertUserRole ($userId: uuid!, $role: String!) {
+            insertAuthUserRole(object: {userId:$userId,role:$role}) {
+              id
+            }
+          }
+      - name: insert_log
+        query: |
+          mutation InsertLogOne ($values: logs_insert_input!) {
+            insert_logs_one(object: $values) {
+              id
+            }
+          }
