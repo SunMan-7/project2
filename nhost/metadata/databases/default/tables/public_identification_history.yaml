@@ -5,3 +5,25 @@ object_relationships:
   - name: image
     using:
       foreign_key_constraint_on: image_file_id
+insert_permissions:
+  - role: p_tagger
+    permission:
+      check: {}
+      set:
+        identify_by: x-hasura-user-displayName
+      columns:
+        - identify_at
+        - image_file_id
+        - type
+    comment: ""
+select_permissions:
+  - role: p_viewer
+    permission:
+      columns:
+        - id
+        - identify_by
+        - type
+        - identify_at
+        - image_file_id
+      filter: {}
+    comment: ""

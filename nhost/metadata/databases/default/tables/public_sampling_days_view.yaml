@@ -1,3 +1,13 @@
 table:
   name: sampling_days_view
   schema: public
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - distinct_date_count
+        - deployment_id
+        - project_id
+      filter: {}
+      allow_aggregations: true
+    comment: ""

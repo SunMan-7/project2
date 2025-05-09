@@ -5,3 +5,62 @@ object_relationships:
   - name: user
     using:
       foreign_key_constraint_on: user_id
+insert_permissions:
+  - role: o_admin
+    permission:
+      check:
+        organization_id:
+          _eq: X-Hasura-organization-id
+      columns:
+        - is_revoked
+        - organization_id
+        - user_id
+    comment: ""
+  - role: o_editor
+    permission:
+      check:
+        organization_id:
+          _eq: X-Hasura-organization-id
+      columns:
+        - is_revoked
+        - organization_id
+        - user_id
+    comment: ""
+  - role: p_editor
+    permission:
+      check: {}
+      columns:
+        - is_revoked
+        - organization_id
+        - user_id
+    comment: ""
+select_permissions:
+  - role: p_viewer
+    permission:
+      columns:
+        - is_revoked
+        - organization_id
+        - user_id
+      filter:
+        organization_id:
+          _eq: X-Hasura-organization-id
+    comment: ""
+update_permissions:
+  - role: o_admin
+    permission:
+      columns:
+        - is_revoked
+      filter:
+        organization_id:
+          _eq: X-Hasura-organization-id
+      check: null
+    comment: ""
+  - role: p_editor
+    permission:
+      columns:
+        - is_revoked
+      filter:
+        organization_id:
+          _eq: X-Hasura-organization-id
+      check: null
+    comment: ""

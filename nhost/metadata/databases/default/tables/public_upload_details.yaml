@@ -5,3 +5,38 @@ object_relationships:
   - name: deployment
     using:
       foreign_key_constraint_on: deployment_id
+insert_permissions:
+  - role: p_contributor
+    permission:
+      check: {}
+      set:
+        uploaded_by: x-hasura-user-displayName
+      columns:
+        - deployment_id
+        - end_time
+        - project_id
+        - start_time
+        - status
+        - submits
+        - uploads
+    comment: ""
+select_permissions:
+  - role: p_viewer
+    permission:
+      columns:
+        - deployment_id
+        - id
+        - project_id
+        - uploaded_by
+        - submits
+        - uploads
+        - status
+        - end_time
+        - start_time
+      filter:
+        deployment:
+          project:
+            organization_id:
+              _eq: X-Hasura-organization-id
+      allow_aggregations: true
+    comment: ""

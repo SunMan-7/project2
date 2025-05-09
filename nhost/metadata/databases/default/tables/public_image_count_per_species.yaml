@@ -1,3 +1,17 @@
 table:
   name: image_count_per_species
   schema: public
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - image_count
+        - id
+        - project_id
+        - common_name
+        - genus
+        - species
+        - taxonomy_subtype
+      filter: {}
+      allow_aggregations: true
+    comment: ""

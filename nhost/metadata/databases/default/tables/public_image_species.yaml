@@ -16,3 +16,33 @@ array_relationships:
         table:
           name: image_individuals
           schema: public
+insert_permissions:
+  - role: p_tagger
+    permission:
+      check: {}
+      columns:
+        - image_file_id
+        - individual_count
+        - species_id
+    comment: ""
+select_permissions:
+  - role: p_viewer
+    permission:
+      columns:
+        - id
+        - species_id
+        - individual_count
+        - image_file_id
+      filter: {}
+      allow_aggregations: true
+    comment: ""
+update_permissions:
+  - role: p_tagger
+    permission:
+      columns:
+        - image_file_id
+        - individual_count
+        - species_id
+      filter: {}
+      check: null
+    comment: ""

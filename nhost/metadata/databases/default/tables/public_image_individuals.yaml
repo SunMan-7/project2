@@ -8,3 +8,39 @@ object_relationships:
   - name: individual
     using:
       foreign_key_constraint_on: individual_id
+insert_permissions:
+  - role: p_tagger
+    permission:
+      check: {}
+      columns:
+        - age
+        - image_species_id
+        - individual_id
+        - sex
+        - side
+    comment: ""
+select_permissions:
+  - role: p_viewer
+    permission:
+      columns:
+        - id
+        - image_species_id
+        - individual_id
+        - age
+        - sex
+        - side
+      filter: {}
+      allow_aggregations: true
+    comment: ""
+update_permissions:
+  - role: p_tagger
+    permission:
+      columns:
+        - age
+        - image_species_id
+        - individual_id
+        - sex
+        - side
+      filter: {}
+      check: null
+    comment: ""
