@@ -37,8 +37,8 @@ version = '0.37.1'
 mode = 'disabled'
 
 [auth.redirections]
-clientUrl = 'https://bctd-test.netlify.app/'
-allowedUrls = ['https://bctd-test.netlify.app/change-password']
+clientUrl = 'https://sunfall.netlify.app/'
+allowedUrls = ['https://sunfall.netlify.app/change-password']
 
 [auth.signUp]
 enabled = true
