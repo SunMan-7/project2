@@ -36,7 +36,7 @@ insert_permissions:
     permission:
       check: {}
       set:
-        organization_id: x-hasura-organization-d
+        organization_id: x-hasura-organization-id
       columns:
         - camera_name
         - make
