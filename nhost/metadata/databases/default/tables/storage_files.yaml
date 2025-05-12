@@ -66,3 +66,22 @@ object_relationships:
         table:
           name: rosettes
           schema: public
+array_relationships:
+  - name: images
+    using:
+      manual_configuration:
+        column_mapping:
+          id: file_id
+        insertion_order: null
+        remote_table:
+          name: images
+          schema: public
+  - name: rosettes
+    using:
+      manual_configuration:
+        column_mapping:
+          id: file_id
+        insertion_order: null
+        remote_table:
+          name: rosettes
+          schema: public
