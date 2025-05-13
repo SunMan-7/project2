@@ -98,6 +98,15 @@ object_relationships:
         table:
           name: default_organization
           schema: public
+  - name: user_organization
+    using:
+      manual_configuration:
+        column_mapping:
+          id: user_id
+        insertion_order: null
+        remote_table:
+          name: user_organizations
+          schema: public
   - name: user_project
     using:
       foreign_key_constraint_on:
