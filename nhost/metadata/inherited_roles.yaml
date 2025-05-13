@@ -1,1 +1,24 @@
-[]
+- role_name: o_admin
+  role_set:
+    - p_admin
+- role_name: o_editor
+  role_set:
+    - o_viewer
+- role_name: o_viewer
+  role_set:
+    - p_viewer
+- role_name: p_admin
+  role_set:
+    - p_editor
+- role_name: p_contributor
+  role_set:
+    - p_tagger
+- role_name: p_editor
+  role_set:
+    - p_contributor
+- role_name: p_tagger
+  role_set:
+    - p_viewer
+- role_name: p_viewer
+  role_set:
+    - user
