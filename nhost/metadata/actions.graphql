@@ -1,0 +1,9 @@
+input SampleInput {
+  userId: uuid!
+  details: String
+}
+
+type SampleOutput {
+  accessToken: String!
+}
+
