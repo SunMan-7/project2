@@ -107,13 +107,6 @@ object_relationships:
         remote_table:
           name: user_organizations
           schema: public
-  - name: user_project
-    using:
-      foreign_key_constraint_on:
-        column: user_id
-        table:
-          name: user_projects
-          schema: public
 array_relationships:
   - name: logs
     using:
@@ -157,6 +150,126 @@ array_relationships:
         table:
           name: user_organizations
           schema: public
+  - name: user_projects
+    using:
+      manual_configuration:
+        column_mapping:
+          id: user_id
+        insertion_order: null
+        remote_table:
+          name: user_projects
+          schema: public
+select_permissions:
+  - role: p_viewer
+    permission:
+      columns:
+        - avatar_url
+        - default_role
+        - disabled
+        - display_name
+        - email
+        - id
+        - last_seen
+        - metadata
+      filter: {}
+      allow_aggregations: true
+    comment: ""
+  - role: user
+    permission:
+      columns:
+        - avatar_url
+        - default_role
+        - display_name
+        - email
+        - id
+        - metadata
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
+    comment: ""
+update_permissions:
+  - role: o_admin
+    permission:
+      columns:
+        - default_role
+        - display_name
+        - metadata
+      filter: {}
+      check: null
+    comment: ""
+  - role: o_editor
+    permission:
+      columns:
+        - default_role
+        - display_name
+        - metadata
+      filter:
+        _and:
+          - user_organizations:
+              organization_id:
+                _eq: X-Hasura-organization-id
+          - default_role:
+              _eq: o_viewer
+      check: null
+    comment: ""
+  - role: p_admin
+    permission:
+      columns:
+        - default_role
+        - display_name
+        - metadata
+      filter:
+        _and:
+          - user_organizations:
+              organization_id:
+                _eq: X-Hasura-organization-id
+          - default_role:
+              _nin:
+                - o_admin
+                - o_editor
+                - o_viewer
+      check: null
+    comment: ""
+  - role: p_editor
+    permission:
+      columns:
+        - default_role
+        - display_name
+        - metadata
+      filter:
+        _and:
+          - user_organizations:
+              organization_id:
+                _eq: X-Hasura-organization-id
+          - default_role:
+              _in:
+                - p_viewer
+                - p_tagger
+                - p_editor
+      check: null
+    comment: ""
+  - role: p_viewer
+    permission:
+      columns:
+        - default_role
+        - display_name
+        - metadata
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
+      check: null
+    comment: ""
+  - role: user
+    permission:
+      columns:
+        - default_role
+        - display_name
+        - metadata
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
+      check: null
+    comment: ""
 event_triggers:
   - name: users_trigger
     definition:
