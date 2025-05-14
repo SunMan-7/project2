@@ -16,9 +16,6 @@ enableAllowList = false
 enableConsole = true
 enableRemoteSchemaPermissions = false
 enabledAPIs = ['metadata', 'graphql', 'pgdump', 'config']
-inferFunctionPermissions = false
-liveQueriesMultiplexedRefetchInterval = 1000
-stringifyNumericTypes = false
 
 [hasura.logs]
 level = 'warn'
@@ -33,16 +30,12 @@ version = 22
 [auth]
 version = '0.37.1'
 
-[auth.elevatedPrivileges]
-mode = 'disabled'
-
 [auth.redirections]
 clientUrl = 'https://sunfall.netlify.app/'
 allowedUrls = ['https://sunfall.netlify.app/change-password']
 
 [auth.signUp]
 enabled = true
-disableNewUsers = false
 
 [auth.user]
 [auth.user.roles]
@@ -55,7 +48,7 @@ allowed = ['en']
 
 [auth.user.gravatar]
 enabled = true
-default = 'blank'
+default = 'identicon'
 rating = 'g'
 
 [auth.user.email]
@@ -80,24 +73,20 @@ value = 'metadata.defaultOrganizationId'
 
 [[auth.session.accessToken.customClaims]]
 key = 'organization-ids'
-value = 'user_organizations[*].organizationd_id'
+value = 'user_organizations[*].organization_id'
 
 [[auth.session.accessToken.customClaims]]
 key = 'project-ids'
 value = 'user_projects.project_id[]'
 
 [auth.session.refreshToken]
-expiresIn = 2592000
+expiresIn = 43200
 
 [auth.method]
 [auth.method.anonymous]
 enabled = false
 
 [auth.method.emailPasswordless]
-enabled = false
-
-[auth.method.otp]
-[auth.method.otp.email]
 enabled = false
 
 [auth.method.emailPassword]
@@ -164,30 +153,6 @@ timeout = 60000
 [auth.totp]
 enabled = false
 
-[auth.misc]
-concealErrors = false
-
-[auth.rateLimit]
-[auth.rateLimit.emails]
-limit = 10
-interval = '1h'
-
-[auth.rateLimit.sms]
-limit = 10
-interval = '1h'
-
-[auth.rateLimit.bruteForce]
-limit = 10
-interval = '5m'
-
-[auth.rateLimit.signups]
-limit = 10
-interval = '5m'
-
-[auth.rateLimit.global]
-limit = 100
-interval = '1m'
-
 [postgres]
 version = '14.15-20250311-1'
 
@@ -203,8 +168,3 @@ version = '0.6.1'
 [observability]
 [observability.grafana]
 adminPassword = '{{ secrets.GRAFANA_ADMIN_PASSWORD }}'
-
-[observability.grafana.alerting]
-enabled = false
-
-[observability.grafana.contacts]
