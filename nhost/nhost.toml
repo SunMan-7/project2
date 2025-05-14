@@ -55,7 +55,7 @@ allowed = ['en']
 
 [auth.user.gravatar]
 enabled = true
-default = 'identicon'
+default = 'blank'
 rating = 'g'
 
 [auth.user.email]
@@ -80,7 +80,7 @@ value = 'metadata.defaultOrganizationId'
 
 [[auth.session.accessToken.customClaims]]
 key = 'organization-ids'
-value = 'user_organizations[*].organization_id'
+value = 'user_organizations[*].organizationd_id'
 
 [[auth.session.accessToken.customClaims]]
 key = 'project-ids'
