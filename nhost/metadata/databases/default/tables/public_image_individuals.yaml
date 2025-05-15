@@ -5,6 +5,15 @@ object_relationships:
   - name: image_species
     using:
       foreign_key_constraint_on: image_species_id
+  - name: image_specy
+    using:
+      manual_configuration:
+        column_mapping:
+          image_species_id: id
+        insertion_order: null
+        remote_table:
+          name: image_species
+          schema: public
   - name: individual
     using:
       foreign_key_constraint_on: individual_id
