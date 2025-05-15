@@ -15,19 +15,19 @@ object_relationships:
     using:
       foreign_key_constraint_on: subproject_id
 array_relationships:
+  - name: image_uploads
+    using:
+      foreign_key_constraint_on:
+        column: deployment_id
+        table:
+          name: upload_details
+          schema: public
   - name: images
     using:
       foreign_key_constraint_on:
         column: deployment_id
         table:
           name: images
-          schema: public
-  - name: upload_details
-    using:
-      foreign_key_constraint_on:
-        column: deployment_id
-        table:
-          name: upload_details
           schema: public
 insert_permissions:
   - role: p_contributor
