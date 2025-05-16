@@ -1,6 +1,16 @@
 table:
   name: organizations
   schema: public
+object_relationships:
+  - name: user_organization
+    using:
+      manual_configuration:
+        column_mapping:
+          id: organization_id
+        insertion_order: null
+        remote_table:
+          name: user_organizations
+          schema: public
 array_relationships:
   - name: cameras
     using:
@@ -28,6 +38,15 @@ array_relationships:
       foreign_key_constraint_on:
         column: organization_id
         table:
+          name: subprojects
+          schema: public
+  - name: surveys
+    using:
+      manual_configuration:
+        column_mapping:
+          id: organization_id
+        insertion_order: null
+        remote_table:
           name: subprojects
           schema: public
   - name: user_organizations

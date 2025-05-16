@@ -2,30 +2,9 @@ table:
   name: projects
   schema: public
 object_relationships:
-  - name: location
-    using:
-      foreign_key_constraint_on:
-        column: project_id
-        table:
-          name: locations
-          schema: public
   - name: organization
     using:
       foreign_key_constraint_on: organization_id
-  - name: subproject
-    using:
-      foreign_key_constraint_on:
-        column: project_id
-        table:
-          name: subprojects
-          schema: public
-  - name: user_project
-    using:
-      foreign_key_constraint_on:
-        column: project_id
-        table:
-          name: user_projects
-          schema: public
 array_relationships:
   - name: deployments
     using:
@@ -33,6 +12,33 @@ array_relationships:
         column: project_id
         table:
           name: deployments
+          schema: public
+  - name: locations
+    using:
+      manual_configuration:
+        column_mapping:
+          id: project_id
+        insertion_order: null
+        remote_table:
+          name: locations
+          schema: public
+  - name: subprojects
+    using:
+      manual_configuration:
+        column_mapping:
+          id: project_id
+        insertion_order: null
+        remote_table:
+          name: subprojects
+          schema: public
+  - name: user_projects
+    using:
+      manual_configuration:
+        column_mapping:
+          id: project_id
+        insertion_order: null
+        remote_table:
+          name: user_projects
           schema: public
 insert_permissions:
   - role: o_admin
