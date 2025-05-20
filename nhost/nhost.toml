@@ -16,7 +16,7 @@ enableAllowList = false
 enableConsole = true
 enableRemoteSchemaPermissions = false
 enabledAPIs = ['metadata', 'graphql', 'pgdump', 'config']
-inferFunctionPermissions = false
+inferFunctionPermissions = true
 liveQueriesMultiplexedRefetchInterval = 1000
 stringifyNumericTypes = false
 
