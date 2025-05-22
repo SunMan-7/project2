@@ -8,15 +8,5 @@
       "value": "https://sunfall.netlify.app/",
       "op": "replace",
       "path": "/auth/redirections/clientUrl"
-    },
-    {
-      "value": [
-        {
-          "name": "ENVIRONMENT",
-          "value": "staging"
-        }
-      ],
-      "op": "add",
-      "path": "/global/environment"
     }
   ]
