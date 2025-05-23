@@ -19,6 +19,15 @@ array_relationships:
         table:
           name: identification_history
           schema: public
+  - name: identify_history
+    using:
+      manual_configuration:
+        column_mapping:
+          file_id: image_file_id
+        insertion_order: null
+        remote_table:
+          name: identification_history
+          schema: public
   - name: image_species
     using:
       foreign_key_constraint_on:
