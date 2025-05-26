@@ -4,9 +4,6 @@ table:
 object_relationships:
   - name: image_species
     using:
-      foreign_key_constraint_on: image_species_id
-  - name: image_specy
-    using:
       manual_configuration:
         column_mapping:
           image_species_id: id
@@ -14,9 +11,18 @@ object_relationships:
         remote_table:
           name: image_species
           schema: public
+  - name: image_specy
+    using:
+      foreign_key_constraint_on: image_species_id
   - name: individual
     using:
-      foreign_key_constraint_on: individual_id
+      manual_configuration:
+        column_mapping:
+          individual_id: id
+        insertion_order: null
+        remote_table:
+          name: individuals
+          schema: public
 insert_permissions:
   - role: p_tagger
     permission:

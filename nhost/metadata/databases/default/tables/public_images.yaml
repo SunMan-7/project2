@@ -26,7 +26,7 @@ array_relationships:
           file_id: image_file_id
         insertion_order: null
         remote_table:
-          name: identification_history
+          name: image_species
           schema: public
   - name: image_species
     using:
