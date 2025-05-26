@@ -22,13 +22,6 @@ array_relationships:
         table:
           name: upload_details
           schema: public
-  - name: images
-    using:
-      foreign_key_constraint_on:
-        column: deployment_id
-        table:
-          name: images
-          schema: public
 insert_permissions:
   - role: p_contributor
     permission:

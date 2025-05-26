@@ -1,0 +1,3 @@
+-- Could not auto-generate a down migration
+-- Please write an appropriate down migration for the SQL below:
+-- ALTER TABLE public.images DROP CONSTRAINT IF EXISTS images_deployment_id_fkey;
